@@ -41,8 +41,8 @@ To access the API Docs, go to the following URLs:
 | ------------------------------------------------------------| ----------------------------------------------------------------------|
 | `http://localhost:8081/ticketbooking/swagger-ui/index.html` | `http://localhost:8081/ticketbooking/v3/api-docs/ticket-booking-apis` |
 
-[API Docs] (Docs/event-service-api-docs.json)
+[API Docs](docs/event-service-api-docs.json)
 
-[Postman Collection] (Docs/Event Service API.postman_collection.json)
+[Postman Collection](docs/event-service-api.postman_collection.json)
 
 
