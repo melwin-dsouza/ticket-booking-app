@@ -1,6 +1,6 @@
 # BOOKING MICROSERVICE
 
-_Create, Search and manage EVENTS._
+_Book and Cancel Tickets._
 
 ### Technologies
 
@@ -21,7 +21,7 @@ Booking Service Microservice is a backend system that lets you:
 - Create, update, and delete Tickets for an Event
 - Create, update, and delete Users
 - Create Multiple tickets for an Event
-- Create a Purchase Request
+- Create a Ticket Purchase Request
 - Get the status of the Purchase request
 
 
