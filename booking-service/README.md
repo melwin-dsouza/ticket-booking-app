@@ -47,5 +47,5 @@ To access the API Docs, go to the following URLs:
 
 [API Docs](docs/booking-service-api-docs.json)
 
-[Postman Collection](docs/booking-service-api.postman_collection.json)
+[Postman Collection](docs/booking-service.postman_collection.json)
 
