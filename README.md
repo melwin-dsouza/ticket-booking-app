@@ -47,6 +47,9 @@ Inorder to run the application Run Individual application by following command,
 ```shell
 mvn spring-boot:run
 ```
+## THE ARCHITECTURE
+
+![image](architecture-diagram.png)
 
 ## MAIN WORKFLOW
 
