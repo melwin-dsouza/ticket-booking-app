@@ -53,16 +53,18 @@ mvn spring-boot:run
 
 ## MAIN WORKFLOW
 
-1. `Create Event`: Use the `http://localhost:8081/ticketbooking/events` to create the Create
-2. `Create Tickets`: Using the Event Id create the Tickets using the `http://localhost:8082/ticketbooking/ticket/multiple` Api
-3. `Check Ticket Availability`: Before starting the Booking process, Check Ticket availability using the `http://localhost:8082/ticketbooking/ticket/:eventId/details` Api
-4. `Place Ticket Purchase Request`: Place the purchase request using the `http://localhost:8082/ticketbooking/ticket/purchase` Api
-5. `Purchase Flow`: Purchase Request will check the Event validity, Checks if the requested number of tickets available and places a Payment trigger by calling `Payment-Service` using `RabbitMQ`
-6. `Payment Flow`: Recieves Payment request from RabbitMQ listener and processes it. Sends the Payment information back to `Booking-Service`
-7. `Send Email Acknowledgement`: Based on the Response received from Payment Service, Booking-Service will call `Notification-Service` for Sending Email to User
-8. `Notification Flow`: Notification-Service will send the email to User about Ticket Status using `AWS SES` service
+1. **Create Event**: Use the `http://localhost:8081/ticketbooking/event` to create the Create
+2. **Create Tickets**: Using the `eventId`, create the Tickets using the `http://localhost:8082/ticketbooking/ticket/multiple` Api
+3. **Check Ticket Availability**: Before starting the Booking process, Check Ticket availability using the `http://localhost:8082/ticketbooking/ticket/:eventId/details` Api
+4. **Place Ticket Purchase Request**: Place the purchase request using the `http://localhost:8082/ticketbooking/ticket/purchase` Api
+5. **Purchase Flow**: Purchase Request will check the Event validity, Checks if the requested number of tickets available and places a Payment trigger by calling **Payment-Service** using **RabbitMQ**
+6. **Payment Flow**: Recieves Payment request from RabbitMQ listener and processes it. Sends the Payment information back to **Booking-Service**
+7. **Send Email Acknowledgement**: Based on the Response received from Payment Service, Booking-Service will call **Notification-Service** for Sending Email to User
+8. **Notification Flow**: Notification-Service will send the email to User about Ticket Status using **AWS SES** service
 
+### Testing
 
+The services `Event`, `Booking`, `Payment` , and `Notification` are unit-tested with JUnit, Mockito, and MockMVC. All the 4 microservices have minimum 80% code coverage.
 
 
 ### API Documentation
