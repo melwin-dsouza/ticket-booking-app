@@ -26,7 +26,7 @@ Notification Service Microservice is a backend system that lets you:
 
 ## RUNNING THE APPLICATIONS
 
-There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.melwin.ticketbooking.event.EventServiceApplication` class from your IDE.
+There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.melwin.ticketbooking.notification.NotificationServiceApplication` class from your IDE.
 
 Alternatively you can run the following command:
 
