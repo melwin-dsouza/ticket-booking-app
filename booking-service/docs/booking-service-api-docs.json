@@ -1,0 +1,655 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Booking Service API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8082/ticketbooking",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Purchase",
+      "description": "Purchase APIs"
+    },
+    {
+      "name": "Ticket",
+      "description": "Ticket APIs"
+    },
+    {
+      "name": "User",
+      "description": "User APIs"
+    }
+  ],
+  "paths": {
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Retrieve a User by Id",
+        "description": "Get User Details by specifying its id. ",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update a User by Id",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete a User by Id",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of User to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ticket/{id}": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Retrieve a Ticket by Id",
+        "description": "Get Ticket Details by specifying its id. ",
+        "operationId": "getTicketById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Ticket to be retrived",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Update a Ticket by Id",
+        "operationId": "updateTicket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Delete a Ticket by Id",
+        "operationId": "deleteTicket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Ticket to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create a new User",
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ticket": {
+      "post": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Create a new Ticket",
+        "operationId": "createTicket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ticket created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ticket/multiple": {
+      "post": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Create multiple Tickets",
+        "operationId": "createMultipleTickets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketBulkDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "201": {
+            "description": "Tickets created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase": {
+      "post": {
+        "tags": [
+          "Purchase"
+        ],
+        "summary": "Purchase a new Ticket",
+        "operationId": "purchaseTicket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Purchase order created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/all": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Retrieve all Users",
+        "operationId": "getAllUsers",
+        "responses": {
+          "204": {
+            "description": "There are no users"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ticket/{eventId}/details": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Retrieve Ticket details by event Id",
+        "description": "Get Available Ticket Details by specifying its event id. ",
+        "operationId": "getTicketAvailabilityDetails",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "ID of event to be retrived",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventDetailsDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ticket/all": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "summary": "Retrieve all Tickets",
+        "operationId": "getAllTickets",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "204": {
+            "description": "There are no tickets"
+          }
+        }
+      }
+    },
+    "/purchase/{purchaseId}": {
+      "get": {
+        "tags": [
+          "Purchase"
+        ],
+        "summary": "Retrieve a Purchase by Id",
+        "description": "Get Purchase order Details by specifying its id. ",
+        "operationId": "getTicket",
+        "parameters": [
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "description": "ID of Purchase order to be retrived",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TicketDTO": {
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "eventId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ticketType": {
+            "type": "string",
+            "enum": [
+              "NORMAL",
+              "VIP"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "ON_HOLD",
+              "BOOKED"
+            ]
+          }
+        }
+      },
+      "UserDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "contactNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "tickets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TicketDTO"
+            }
+          }
+        }
+      },
+      "TicketBulkDTO": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ticketType": {
+            "type": "string",
+            "enum": [
+              "NORMAL",
+              "VIP"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "ON_HOLD",
+              "BOOKED"
+            ]
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PurchaseRequest": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "NORMAL",
+              "VIP"
+            ]
+          }
+        }
+      },
+      "EventDetailsDTO": {
+        "type": "object",
+        "properties": {
+          "ticketType": {
+            "type": "string"
+          },
+          "availableTickets": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
