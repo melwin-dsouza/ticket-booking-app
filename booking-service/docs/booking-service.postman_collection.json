@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "e0e08afb-297f-488d-baaf-893f93707be2",
-		"name": "Booking Service API",
+		"_postman_id": "435ca159-8c02-4f0e-856d-0d7c82676b87",
+		"name": "Booking Service API Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36602668"
 	},
@@ -78,7 +78,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}"
+									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -154,7 +154,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -197,7 +197,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -231,7 +231,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}"
+									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -245,7 +245,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -288,7 +288,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -461,7 +461,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}"
+									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}"
 								},
 								{
 									"name": "There are no users",
@@ -529,7 +529,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+							"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -564,7 +564,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -592,7 +592,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}"
+							"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}"
 						},
 						{
 							"name": "Internal Server Error",
@@ -606,7 +606,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"contactNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"tickets\": [\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"NORMAL\",\n      \"price\": \"<double>\",\n      \"status\": \"AVAILABLE\"\n    },\n    {\n      \"ticketId\": \"<long>\",\n      \"eventId\": \"<long>\",\n      \"ticketType\": \"VIP\",\n      \"price\": \"<double>\",\n      \"status\": \"BOOKED\"\n    }\n  ]\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -707,7 +707,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 								},
 								{
 									"name": "Not Found",
@@ -783,7 +783,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -826,7 +826,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -860,7 +860,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 								},
 								{
 									"name": "Not Found",
@@ -874,7 +874,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -917,7 +917,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+											"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1089,7 +1089,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"eventId\": \"1\",\n  \"ticketType\": \"VIP\",\n  \"price\": 200.0,\n  \"quantity\": 5\n}",
+											"raw": "{\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\",\n  \"quantity\": \"<integer>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -1118,7 +1118,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 								},
 								{
 									"name": "Internal Server Error",
@@ -1358,7 +1358,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 								},
 								{
 									"name": "There are no tickets",
@@ -1426,7 +1426,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+							"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -1461,7 +1461,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1489,7 +1489,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+							"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 						},
 						{
 							"name": "Internal Server Error",
@@ -1503,7 +1503,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}",
+									"raw": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1604,7 +1604,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"NORMAL\",\n  \"price\": \"<double>\",\n  \"status\": \"BOOKED\"\n}"
+									"body": "{\n  \"ticketId\": \"<long>\",\n  \"eventId\": \"<long>\",\n  \"ticketType\": \"VIP\",\n  \"price\": \"<double>\",\n  \"status\": \"ON_HOLD\"\n}"
 								},
 								{
 									"name": "Not Found",
@@ -1663,6 +1663,103 @@
 									"body": ""
 								}
 							]
+						},
+						{
+							"name": "Cancel a new Ticket",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/purchase/:purchaseId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"purchase",
+										":purchaseId"
+									],
+									"variable": [
+										{
+											"key": "purchaseId",
+											"value": "<long>",
+											"description": "(Required) ID of Purchase order to be canceled"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ticket Purchase order Cancelled",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/purchase/:purchaseId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"purchase",
+												":purchaseId"
+											],
+											"variable": [
+												{
+													"key": "purchaseId"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "<long>"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/purchase/:purchaseId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"purchase",
+												":purchaseId"
+											],
+											"variable": [
+												{
+													"key": "purchaseId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
 						}
 					]
 				},
@@ -1682,7 +1779,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"eventId\": \"1\",\n  \"userId\": \"1\",\n  \"quantity\": 5,\n  \"type\": \"NORMAL\"\n}",
+							"raw": "{\n  \"eventId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"VIP\"\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -1717,7 +1814,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"eventId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"NORMAL\"\n}",
+									"raw": "{\n  \"eventId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"VIP\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1759,7 +1856,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"eventId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"NORMAL\"\n}",
+									"raw": "{\n  \"eventId\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"VIP\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",

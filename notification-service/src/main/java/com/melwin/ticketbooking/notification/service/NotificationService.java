@@ -32,6 +32,8 @@ public class NotificationService {
 		StringBuilder str=new StringBuilder();
 		if("SUCCESS".equals(details.getBookingStatus())){
 			str.append("Booking is Successfull for the Event: ").append(details.getEventName());
+		}else if("CANCELLED".equals(details.getBookingStatus())){
+			str.append("Booking has been cancelled for the Event: ").append(details.getEventName());
 		}else {
 			str.append("Booking is Unsuccessfull for the Event: ").append(details.getEventName());
 		}
@@ -51,7 +53,6 @@ public class NotificationService {
         
         try {
             send(sesClient, sender, recipient, subject, bodyHTML.toString());
-            sesClient.close();
             System.out.println("Done");
 
         } catch (MessagingException e) {

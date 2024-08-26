@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,7 +43,6 @@ public class PurchaseController {
 		Long purchaseId = purchaseService.createPurchase(request);
 		return new ResponseEntity<>(ResponseBody.of("Purchase Inprogress.", HttpStatus.CREATED, purchaseId),
 				HttpStatus.CREATED);
-
 	}
 
 	@Operation(summary = "Retrieve a Purchase by Id", description = "Get Purchase order Details by specifying its id. ")
@@ -58,6 +58,18 @@ public class PurchaseController {
 		return new ResponseEntity<>(
 				ResponseBody.of("Purchase details successfully retrieved.", HttpStatus.OK, purchase), HttpStatus.OK);
 
+	}
+	
+	@Operation(summary = "Cancel a new Ticket")
+	@ApiResponses({
+			@ApiResponse(responseCode = "201", description = "Ticket Purchase order Cancelled", content = {
+					@Content(schema = @Schema(implementation = Long.class), mediaType = "application/json") }),
+			@ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+	@PutMapping(path= "{purchaseId}")
+	ResponseEntity<ResponseBody> cancelTicket(@Parameter(description = "ID of Purchase order to be canceled", required = true) @PathVariable("purchaseId") Long id) {
+		Long purchaseId = purchaseService.cancelPurchase(id);
+		return new ResponseEntity<>(ResponseBody.of("Purchase Cancelled, Refund will be processed soon.", HttpStatus.OK, purchaseId),
+				HttpStatus.OK);
 	}
 
 }

@@ -29,4 +29,9 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 	
 	@Query(value= "SELECT ticket_type as ticketType,COUNT(*) as availableTickets FROM t_ticket where event_id=?1 AND status='AVAILABLE' GROUP BY ticket_type", nativeQuery = true)
 	List<EventDetailsDTO> getTicketAvailabiltyDetails(Long eventId);
+	
+	@Modifying
+	@Query(value = "UPDATE t_ticket set status='AVAILABLE', purchase_id=null, user_id=null WHERE purchase_id=?1 ", nativeQuery = true)
+	Integer updateCancelledTickets(Long purchase);
+
 }

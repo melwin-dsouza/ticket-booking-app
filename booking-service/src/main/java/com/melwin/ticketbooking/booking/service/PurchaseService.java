@@ -70,6 +70,8 @@ public class PurchaseService {
 		purchase.setUser(user);
 		purchase.setStatus(PurchaseStatus.IN_PROGRESS);
 		purchase.setAmount(ticketPrice * request.getQuantity());
+		purchase.setTicketQty(request.getQuantity());
+		purchase.setTicketType(request.getType().toString());
 		purchase = purchaseRepository.save(purchase);
 		
 		// 3. If tickets are available book first n tickets set status to hold
@@ -77,7 +79,7 @@ public class PurchaseService {
 				request.getQuantity());
 		// 4. call payment service using mq
 		paymentPublisher.sendMessage(
-				new PaymentRequest(purchase.getId(), user.getId(), ticketPrice * request.getQuantity(), null));
+				new PaymentRequest(purchase.getId(), user.getId(), ticketPrice * request.getQuantity(), "BOOK"));
 		return purchase.getId();
 	}
 
@@ -93,6 +95,8 @@ public class PurchaseService {
 		if(Objects.nonNull(purchase)) {
 			if(PaymentStatus.SUCCESS.equals(response.getStatus())) {
 				purchase.setStatus(PurchaseStatus.BOOKED);
+			}else if(PaymentStatus.CANCELLED.equals(response.getStatus())){
+				purchase.setStatus(PurchaseStatus.CANCELLED);
 			}else {
 				purchase.setStatus(PurchaseStatus.FAILED);
 			}
@@ -114,12 +118,23 @@ public class PurchaseService {
 				.eventName(event.getName())
 				.eventDate(event.getDate())
 				.eventLocation(event.getLocation())
-				.ticketType(purchase.getTickets().getFirst().getTicketType().toString())
-				.ticketQty(purchase.getTickets().size())
+				.ticketType(purchase.getTicketType())
+				.ticketQty(purchase.getTicketQty())
 				.paymentAmount(purchase.getAmount())
 				.bookingStatus(paymentResponse.getStatus().toString()).build();			
 		
 		
+	}
+
+	@Transactional
+	public Long cancelPurchase(Long id) {
+		Purchase purchase = purchaseRepository.findById(id)
+				.orElseThrow(() -> new ApiRequestException(HttpStatus.NOT_FOUND, "Purchase order Not Found"));
+		purchase.setStatus(PurchaseStatus.CANCELLED);
+		purchase = purchaseRepository.save(purchase);
+		ticketRepository.updateCancelledTickets(id);
+		paymentPublisher.sendMessage(PaymentRequest.builder().purchaseId(id).type("CANCEL").build());
+		return purchase.getId();
 	}
 
 }

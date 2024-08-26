@@ -49,6 +49,12 @@ public class Purchase {
 	@Column(name = "status")
 	private PurchaseStatus status;
 
+	@Column(name = "ticket_type")
+	private String ticketType;
+	
+	@Column(name = "ticket_Qty")
+	private Integer ticketQty;
+	
 	@OneToMany(targetEntity = Ticket.class, mappedBy = "purchase", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Ticket> tickets;
 

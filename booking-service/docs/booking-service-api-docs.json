@@ -159,6 +159,9 @@
           }
         ],
         "responses": {
+          "404": {
+            "description": "Not Found"
+          },
           "200": {
             "description": "OK",
             "content": {
@@ -168,9 +171,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -206,6 +206,9 @@
           "required": true
         },
         "responses": {
+          "404": {
+            "description": "Not Found"
+          },
           "200": {
             "description": "OK",
             "content": {
@@ -215,9 +218,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -248,6 +248,81 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/purchase/{purchaseId}": {
+      "get": {
+        "tags": [
+          "Purchase"
+        ],
+        "summary": "Retrieve a Purchase by Id",
+        "description": "Get Purchase order Details by specifying its id. ",
+        "operationId": "getTicket",
+        "parameters": [
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "description": "ID of Purchase order to be retrived",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDTO"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Purchase"
+        ],
+        "summary": "Cancel a new Ticket",
+        "operationId": "cancelTicket",
+        "parameters": [
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "description": "ID of Purchase order to be canceled",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "201": {
+            "description": "Ticket Purchase order Cancelled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
           }
         }
       }
@@ -338,9 +413,6 @@
           "required": true
         },
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
           "201": {
             "description": "Tickets created",
             "content": {
@@ -350,6 +422,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -479,46 +554,6 @@
           },
           "204": {
             "description": "There are no tickets"
-          }
-        }
-      }
-    },
-    "/purchase/{purchaseId}": {
-      "get": {
-        "tags": [
-          "Purchase"
-        ],
-        "summary": "Retrieve a Purchase by Id",
-        "description": "Get Purchase order Details by specifying its id. ",
-        "operationId": "getTicket",
-        "parameters": [
-          {
-            "name": "purchaseId",
-            "in": "path",
-            "description": "ID of Purchase order to be retrived",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TicketDTO"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }

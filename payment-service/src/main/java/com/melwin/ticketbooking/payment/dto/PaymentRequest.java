@@ -14,6 +14,6 @@ public class PaymentRequest {
 	private Long purchaseId;
 	private Long userId;
 	private Double amount;
-	private String status;
+	private String type;
 	
 }

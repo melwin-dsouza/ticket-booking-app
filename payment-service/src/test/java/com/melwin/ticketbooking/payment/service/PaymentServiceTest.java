@@ -41,7 +41,7 @@ class PaymentServiceTest {
 		payment.setPurchaseId(1L);
 		dto = new PaymentRequest();
 		dto.setPurchaseId(1L);
-		dto.setStatus("SUCCESS");
+		dto.setType("BOOK");
 	}
 
 	@Test

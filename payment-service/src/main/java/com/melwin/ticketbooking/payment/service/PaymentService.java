@@ -2,6 +2,7 @@ package com.melwin.ticketbooking.payment.service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +26,32 @@ public class PaymentService {
 	private static final Random RANDOM = new Random();
 
 	public void completePayment(PaymentRequest request) {
-		Payment payment = new Payment();
-		payment.setAmount(request.getAmount());
-		payment.setPurchaseId(request.getPurchaseId());
-		payment.setUserId(request.getUserId());
-		payment.setStatus(PaymentStatus.IN_PROGRESS);
-		payment = paymentRepository.save(payment);
-		try {
-			Thread.sleep(1 * 60 * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		payment.setStatus(randomStatusGenerator());
-		payment = paymentRepository.save(payment);
-		responsePublisher.sendMessage(new PaymentResponse(request.getPurchaseId(), payment.getStatus()));
+		Payment payment;
+		if("BOOK".equals(request.getType())){
+			payment = new Payment();
+			payment.setAmount(request.getAmount());
+			payment.setPurchaseId(request.getPurchaseId());
+			payment.setUserId(request.getUserId());
+			payment.setStatus(PaymentStatus.IN_PROGRESS);
+			payment = paymentRepository.save(payment);
+			try {
+				Thread.sleep(1 * 60 * 1000);//initiates payment with Payment provider
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			payment.setStatus(randomStatusGenerator());
+			payment = paymentRepository.save(payment);
+			responsePublisher.sendMessage(new PaymentResponse(request.getPurchaseId(), payment.getStatus()));
+		}else if("CANCEL".equals(request.getType())){
+			Optional<Payment> paymentOpt = paymentRepository.findByPurchaseId(request.getPurchaseId());
+			if(paymentOpt.isPresent()) {
+				payment = paymentOpt.get();
+				payment.setStatus(PaymentStatus.CANCELLED);
+				payment = paymentRepository.save(payment);
+			}
+			responsePublisher.sendMessage(new PaymentResponse(request.getPurchaseId(), PaymentStatus.CANCELLED));
+		}		
+		
 	}
 
 	private PaymentStatus randomStatusGenerator() {

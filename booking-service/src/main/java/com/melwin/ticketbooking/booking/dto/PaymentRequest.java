@@ -1,6 +1,7 @@
 package com.melwin.ticketbooking.booking.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -9,11 +10,12 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class PaymentRequest {
 	
 	private Long purchaseId;
 	private Long userId;
 	private Double amount;
-	private String status;
+	private String type;
 	
 }
