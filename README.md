@@ -17,6 +17,7 @@ Event ticket Booking application uses a following tools and frameworks to work p
 - FeignClient
 - AWS SES
 - Swagger
+- Docker
 
 ## Features
 
@@ -36,17 +37,22 @@ Event ticket Booking application is a backend system that lets you:
 
 ## RUNNING THE APPLICATIONS
 
-There are 4 microservices in this application
-- Event Service
-- Booking Service
-- Payment Service
-- Notification Service
-
-Inorder to run the application Run Individual application by following command,
+Inorder to run the application, Run the following Docker commands on the root of the project,
 
 ```shell
-mvn spring-boot:run
+docker-compose build
 ```
+
+```shell
+docker-compose up
+```
+
+There are 4 microservices in this application
+- Event Service: will run on `localhost:8081`
+- Booking Service: will run on `localhost:8082`
+- Payment Service: will run on `localhost:8083`
+- Notification Service: will run on `localhost:8084`
+
 ## THE ARCHITECTURE
 
 ![image](architecture-diagram.png)
