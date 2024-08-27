@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  event-service:
+    image: event-service:latest
+    build:
+      context: ./event-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+
+  booking-service:
+    image: booking-service:latest
+    build:
+      context: ./booking-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - event-service
+      - rabbitmq
+
+  payment-service:
+    image: payment-service:latest
+    build:
+      context: ./payment-service
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - rabbitmq
+
+  notification-service:
+    image: notification-service:latest
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+networks:
+  default:
+    driver: bridge

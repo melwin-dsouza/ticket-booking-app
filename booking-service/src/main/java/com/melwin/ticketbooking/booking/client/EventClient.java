@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.melwin.ticketbooking.booking.dto.EventDTO;
 
-@FeignClient(name="event-service",url = "localhost:8081/ticketbooking/")
+@FeignClient(name="event-service",url = "event-service:8081/ticketbooking/")
 public interface EventClient {
 	
 	@GetMapping("/events/{eventId}/isActive")
