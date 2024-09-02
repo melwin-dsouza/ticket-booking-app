@@ -71,10 +71,6 @@ public class TicketService {
 	}
 
 	public List<EventDetailsDTO> getTicketAvailabilityDetails(Long eventId) {
-		boolean valid=eventClient.isEventValid(eventId);
-		if (!valid) {
-			throw new ApiRequestException(HttpStatus.BAD_REQUEST, "Event is Marked as DONE");
-		}
 		return ticketRepository.getTicketAvailabiltyDetails(eventId);
 
 	}

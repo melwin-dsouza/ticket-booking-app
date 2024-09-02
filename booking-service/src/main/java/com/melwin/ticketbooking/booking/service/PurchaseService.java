@@ -1,5 +1,6 @@
 package com.melwin.ticketbooking.booking.service;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.melwin.ticketbooking.booking.client.EventClient;
 import com.melwin.ticketbooking.booking.converter.PurchaseConverter;
-import com.melwin.ticketbooking.booking.converter.TicketConverter;
 import com.melwin.ticketbooking.booking.dto.EventDTO;
 import com.melwin.ticketbooking.booking.dto.NotificationDetails;
 import com.melwin.ticketbooking.booking.dto.PaymentRequest;
@@ -19,11 +19,9 @@ import com.melwin.ticketbooking.booking.dto.PurchaseDTO;
 import com.melwin.ticketbooking.booking.dto.PurchaseRequest;
 import com.melwin.ticketbooking.booking.entity.Purchase;
 import com.melwin.ticketbooking.booking.entity.PurchaseStatus;
-import com.melwin.ticketbooking.booking.entity.Ticket;
 import com.melwin.ticketbooking.booking.entity.TicketStatus;
 import com.melwin.ticketbooking.booking.entity.User;
 import com.melwin.ticketbooking.booking.exception.ApiRequestException;
-import com.melwin.ticketbooking.booking.exception.BookingServiceException;
 import com.melwin.ticketbooking.booking.repository.PurchaseRepository;
 import com.melwin.ticketbooking.booking.repository.TicketRepository;
 import com.melwin.ticketbooking.booking.repository.UserRepository;
@@ -72,6 +70,7 @@ public class PurchaseService {
 		purchase.setAmount(ticketPrice * request.getQuantity());
 		purchase.setTicketQty(request.getQuantity());
 		purchase.setTicketType(request.getType().toString());
+		purchase.setCreatedAt(LocalDateTime.now());
 		purchase = purchaseRepository.save(purchase);
 		
 		// 3. If tickets are available book first n tickets set status to hold

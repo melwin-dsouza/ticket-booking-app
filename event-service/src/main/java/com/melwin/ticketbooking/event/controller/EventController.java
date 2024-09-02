@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.melwin.ticketbooking.event.dto.EventDTO;
-import com.melwin.ticketbooking.event.exception.EventServiceException;
+import com.melwin.ticketbooking.event.dto.EventDetailsDTO;
 import com.melwin.ticketbooking.event.service.EventService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,7 +30,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Event", description = "Event service APIs")
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/event")
 public class EventController {
 
 	@Autowired
@@ -71,18 +72,6 @@ public class EventController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-	}
-
-	@Operation(summary = "Check if the event is Active", description = "Checks if the requested Event is active and return the boolean value.")
-	@ApiResponses({
-			@ApiResponse(responseCode = "200", content = {
-					@Content(schema = @Schema(implementation = Boolean.class), mediaType = "application/json") }),
-			@ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-			@ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
-	@GetMapping("/{id}/isActive")
-	public ResponseEntity<Boolean> isEventActive(
-			@Parameter(description = "ID of event to be retrieved", required = true) @PathVariable Long id) {
-		return new ResponseEntity<>(eventService.isEventActive(id), HttpStatus.OK);
 	}
 
 	@Operation(summary = "Create a new Event")
@@ -128,6 +117,18 @@ public class EventController {
 
 	}
 	
+	@Operation(summary = "Check if the event is Active", description = "Checks if the requested Event is active and return the boolean value.")
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", content = {
+					@Content(schema = @Schema(implementation = Boolean.class), mediaType = "application/json") }),
+			@ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+			@ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+	@GetMapping("/{id}/isActive")
+	public ResponseEntity<Boolean> isEventActive(
+			@Parameter(description = "ID of event to be retrieved", required = true) @PathVariable Long id) {
+		return new ResponseEntity<>(eventService.isEventActive(id), HttpStatus.OK);
+	}
+	
 	@Operation(summary = "Check if the event is Valid", description = "Checks if the requested Event is Present and return the boolean value.")
 	@ApiResponses({
 			@ApiResponse(responseCode = "200", content = {
@@ -138,6 +139,22 @@ public class EventController {
 	public ResponseEntity<Boolean> isEventValid(
 			@Parameter(description = "ID of event to be checked", required = true) @PathVariable Long id) {
 		return new ResponseEntity<>(eventService.isEventValid(id), HttpStatus.OK);
+	}
+	
+
+	
+	@Operation(summary = "Retrieve Ticket details by event Id", description = "Get Available Ticket Details by specifying its event id. ")
+	@ApiResponses({
+			@ApiResponse(responseCode = "200", content = {
+					@Content(schema = @Schema(implementation = EventDetailsDTO.class), mediaType = "application/json") }),
+			@ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+			@ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
+	@GetMapping("/{eventId}/details")
+	public ResponseEntity<List<EventDetailsDTO>> getTicketAvailabilityDetails(
+			@Parameter(description = "ID of event to be retrived", required = true) @PathVariable Long eventId) {
+
+		return new ResponseEntity<>(eventService.getTicketAvailabilityDetails(eventId), HttpStatus.OK);
+
 	}
 
 }

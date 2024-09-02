@@ -1,5 +1,6 @@
 package com.melwin.ticketbooking.booking.entity;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -54,6 +55,9 @@ public class Purchase {
 	
 	@Column(name = "ticket_Qty")
 	private Integer ticketQty;
+	
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
 	
 	@OneToMany(targetEntity = Ticket.class, mappedBy = "purchase", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Ticket> tickets;

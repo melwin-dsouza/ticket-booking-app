@@ -129,11 +129,9 @@ public class TicketController {
 			@ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
 			@ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
 	@GetMapping("/{eventId}/details")
-	public ResponseEntity<ResponseBody> getTicketAvailabilityDetails(
+	public ResponseEntity<List<EventDetailsDTO>> getTicketAvailabilityDetails(
 			@Parameter(description = "ID of event to be retrived", required = true) @PathVariable Long eventId) {
-
-		return new ResponseEntity<>(ResponseBody.of("Available Ticket Details Fetched Successfully", HttpStatus.OK,
-				ticketService.getTicketAvailabilityDetails(eventId)), HttpStatus.OK);
+		return new ResponseEntity<>(ticketService.getTicketAvailabilityDetails(eventId), HttpStatus.OK);
 
 	}
 }

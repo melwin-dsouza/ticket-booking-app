@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.melwin.ticketbooking.event.client.BookingClient;
 import com.melwin.ticketbooking.event.converter.EventConverter;
 import com.melwin.ticketbooking.event.dto.EventDTO;
+import com.melwin.ticketbooking.event.dto.EventDetailsDTO;
 import com.melwin.ticketbooking.event.entity.Event;
 import com.melwin.ticketbooking.event.entity.EventStatus;
 import com.melwin.ticketbooking.event.exception.ApiRequestException;
@@ -20,6 +22,9 @@ public class EventService {
 
 	@Autowired
 	private EventRepository eventRepository;
+	
+	@Autowired
+	private BookingClient bookingClient;
 
 	public EventDTO createEvent(EventDTO eventDto) {
 		Event event = EventConverter.toEntity(eventDto, new Event());
@@ -62,6 +67,15 @@ public class EventService {
 		event.setStatus(EventStatus.valueOf(dto.getStatus()));
 		event = EventConverter.toEntity(dto, event);
 		return EventConverter.toDTO(eventRepository.save(event));
+	}
+
+	public List<EventDetailsDTO> getTicketAvailabilityDetails(Long eventId) {
+		boolean valid = isEventValid(eventId);
+		if (!valid) {
+			throw new ApiRequestException(HttpStatus.BAD_REQUEST, "Event is Marked as DONE");
+		}
+		return bookingClient.getTicketAvailabilityDetails(eventId);
+
 	}
 
 }

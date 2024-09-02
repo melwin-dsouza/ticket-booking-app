@@ -35,7 +35,7 @@ public class PaymentService {
 			payment.setStatus(PaymentStatus.IN_PROGRESS);
 			payment = paymentRepository.save(payment);
 			try {
-				Thread.sleep(1 * 60 * 1000);//initiates payment with Payment provider
+				Thread.sleep(2 * 60 * 1000);//initiates payment with Payment provider
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

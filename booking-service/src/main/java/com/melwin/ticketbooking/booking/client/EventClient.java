@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.melwin.ticketbooking.booking.dto.EventDTO;
 
-@FeignClient(name="event-service",url = "event-service:8081/ticketbooking/")
+@FeignClient(name="event-service",url = "event-service:8081/ticketbooking/event/")
 public interface EventClient {
 	
-	@GetMapping("/events/{eventId}/isActive")
+	@GetMapping("{eventId}/isActive")
 	boolean isEventActive(@PathVariable("eventId") Long eventId);
 	
-	@GetMapping("/events/{eventId}/isValid")
+	@GetMapping("{eventId}/isValid")
 	boolean isEventValid(@PathVariable("eventId") Long eventId);
 	
-	@GetMapping("/events/{eventId}")
+	@GetMapping("{eventId}")
 	EventDTO getEventById(@PathVariable("eventId") Long eventId);
 
 }
