@@ -119,8 +119,9 @@ public class TicketControllerTest {
 		when(ticketService.getTicketAvailabilityDetails(anyLong())).thenReturn(list);
 
 		mockMvc.perform(MockMvcRequestBuilders.get(String.format("/ticket/%s/details", 1)).accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().is(200)).andExpect(MockMvcResultMatchers.jsonPath("$.data").isEmpty());
+				.andExpect(status().is(200)).andExpect(MockMvcResultMatchers.jsonPath("$").isEmpty());
 	}
+	
 	public static String asJsonString(final Object obj) {
 		try {
 			return new ObjectMapper().writeValueAsString(obj);

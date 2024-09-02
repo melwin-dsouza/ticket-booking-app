@@ -17,7 +17,7 @@
     }
   ],
   "paths": {
-    "/events/{id}": {
+    "/event/{id}": {
       "get": {
         "tags": [
           "Event"
@@ -38,9 +38,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -50,6 +47,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "404": {
             "description": "Not Found"
@@ -85,9 +85,6 @@
           "required": true
         },
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -97,6 +94,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           },
           "404": {
             "description": "Not Found"
@@ -122,16 +122,16 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
           "204": {
             "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/events": {
+    "/event": {
       "get": {
         "tags": [
           "Event"
@@ -150,12 +150,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
-          "204": {
-            "description": "There are no events"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -165,6 +159,12 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "204": {
+            "description": "There are no events"
           }
         }
       },
@@ -185,6 +185,9 @@
           "required": true
         },
         "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
           "201": {
             "description": "Event created",
             "content": {
@@ -194,14 +197,11 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/events/{id}/isValid": {
+    "/event/{id}/isValid": {
       "get": {
         "tags": [
           "Event"
@@ -222,6 +222,12 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "Not Found"
+          },
           "200": {
             "description": "OK",
             "content": {
@@ -231,17 +237,11 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
     },
-    "/events/{id}/isActive": {
+    "/event/{id}/isActive": {
       "get": {
         "tags": [
           "Event"
@@ -262,6 +262,12 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "Not Found"
+          },
           "200": {
             "description": "OK",
             "content": {
@@ -271,9 +277,43 @@
                 }
               }
             }
-          },
+          }
+        }
+      }
+    },
+    "/event/{eventId}/details": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Retrieve Ticket details by event Id",
+        "description": "Get Available Ticket Details by specifying its event id. ",
+        "operationId": "getTicketAvailabilityDetails",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "ID of event to be retrived",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
           "500": {
             "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventDetailsDTO"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -306,6 +346,18 @@
           },
           "status": {
             "type": "string"
+          }
+        }
+      },
+      "EventDetailsDTO": {
+        "type": "object",
+        "properties": {
+          "ticketType": {
+            "type": "string"
+          },
+          "availableTickets": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       }

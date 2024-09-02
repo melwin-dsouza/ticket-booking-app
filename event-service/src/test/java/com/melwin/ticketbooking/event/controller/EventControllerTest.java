@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.melwin.ticketbooking.event.dto.EventDetailsDTO;
 import com.melwin.ticketbooking.event.dto.EventDTO;
 import com.melwin.ticketbooking.event.service.EventService;
 
@@ -44,7 +45,7 @@ public class EventControllerTest {
 		List<EventDTO> list = new ArrayList<>(Arrays.asList(event, event2));
 		when(eventService.getAllEvents(anyString())).thenReturn(list);
 
-		mockMvc.perform(MockMvcRequestBuilders.get("/events").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get("/event").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().is(200));
 	}
 
@@ -54,7 +55,7 @@ public class EventControllerTest {
 		event.setId(1L);
 		when(eventService.getEventById(anyLong())).thenReturn(event);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(String.format("/events/%s", 1)).accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get(String.format("/event/%s", 1)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().is(200)).andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L));
 	}
 
@@ -64,7 +65,7 @@ public class EventControllerTest {
 		event.setId(1L);
 		when(eventService.createEvent(any(EventDTO.class))).thenReturn(event);
 
-		mockMvc.perform(MockMvcRequestBuilders.post("/events").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(MockMvcRequestBuilders.post("/event").contentType(MediaType.APPLICATION_JSON)
 				.content(asJsonString(new EventDTO(1L, "test", null, "loc", "performer", null)))
 				.accept(MediaType.APPLICATION_JSON).characterEncoding(StandardCharsets.UTF_8))
 				.andExpect(status().is(201));
@@ -76,7 +77,7 @@ public class EventControllerTest {
 		when(eventService.isEventActive(anyLong())).thenReturn(true);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.get(String.format("/events/%s/isActive", 1)).accept(MediaType.APPLICATION_JSON))
+				MockMvcRequestBuilders.get(String.format("/event/%s/isActive", 1)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().is(200));
 		Mockito.verify(this.eventService, Mockito.times(1)).isEventActive(anyLong());
 	}
@@ -85,7 +86,7 @@ public class EventControllerTest {
 	void deleteEvent() throws Exception {
 		Mockito.doNothing().when(eventService).deleteEvent(anyLong());
 
-		mockMvc.perform(MockMvcRequestBuilders.delete(String.format("/events/%s", 1)).accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.delete(String.format("/event/%s", 1)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().is(204));
 	}
 
@@ -96,7 +97,7 @@ public class EventControllerTest {
 		when(eventService.updateEvent(anyLong(), any(EventDTO.class))).thenReturn(event);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.put(String.format("/events/%s", 1)).contentType(MediaType.APPLICATION_JSON)
+				MockMvcRequestBuilders.put(String.format("/event/%s", 1)).contentType(MediaType.APPLICATION_JSON)
 						.content(asJsonString(new EventDTO(1L, "test", null, "loc", "performer", null)))
 						.accept(MediaType.APPLICATION_JSON).characterEncoding(StandardCharsets.UTF_8))
 				.andExpect(status().is(200));
@@ -108,9 +109,18 @@ public class EventControllerTest {
 		when(eventService.isEventValid(anyLong())).thenReturn(true);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.get(String.format("/events/%s/isValid", 1)).accept(MediaType.APPLICATION_JSON))
+				MockMvcRequestBuilders.get(String.format("/event/%s/isValid", 1)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().is(200));
 		Mockito.verify(this.eventService, Mockito.times(1)).isEventValid(anyLong());
+	}
+	
+	@Test
+	void getTicketAvailabilityDetails() throws Exception {
+		List<EventDetailsDTO> list = new ArrayList<>();
+		when(eventService.getTicketAvailabilityDetails(anyLong())).thenReturn(list);
+
+		mockMvc.perform(MockMvcRequestBuilders.get(String.format("/event/%s/details", 1)).accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(200)).andExpect(MockMvcResultMatchers.jsonPath("$").isEmpty());
 	}
 
 	public static String asJsonString(final Object obj) {

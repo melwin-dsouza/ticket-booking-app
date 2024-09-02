@@ -101,7 +101,6 @@ class TicketServiceTest {
 
 	@Test
 	void getTicketAvailabilityDetails() {
-		when(eventClient.isEventValid(anyLong())).thenReturn(true);
 		when(ticketRepository.getTicketAvailabiltyDetails(1L)).thenReturn(List.of());
 		List<EventDetailsDTO> list = ticketService.getTicketAvailabilityDetails(1L);
 		assertEquals(list.size(), 0);

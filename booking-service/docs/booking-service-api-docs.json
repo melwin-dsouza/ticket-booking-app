@@ -45,9 +45,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Not Found"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -57,6 +54,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -92,9 +92,6 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Not Found"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -104,6 +101,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -159,9 +159,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Not Found"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -171,6 +168,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -206,9 +206,6 @@
           "required": true
         },
         "responses": {
-          "404": {
-            "description": "Not Found"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -218,6 +215,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -273,9 +273,6 @@
           }
         ],
         "responses": {
-          "404": {
-            "description": "Not Found"
-          },
           "200": {
             "description": "OK",
             "content": {
@@ -285,6 +282,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -310,9 +310,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
-          },
           "201": {
             "description": "Ticket Purchase order Cancelled",
             "content": {
@@ -323,6 +320,9 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -549,11 +549,11 @@
               }
             }
           },
-          "500": {
-            "description": "Internal Server Error"
-          },
           "204": {
             "description": "There are no tickets"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

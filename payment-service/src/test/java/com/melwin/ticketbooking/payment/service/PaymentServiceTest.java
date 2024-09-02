@@ -1,9 +1,12 @@
 package com.melwin.ticketbooking.payment.service;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,6 +53,17 @@ class PaymentServiceTest {
 		Mockito.doNothing().when(responsePublisher).sendMessage(any(PaymentResponse.class));
 		paymentService.completePayment(dto);
 		verify(paymentRepository, times(2)).save(any(Payment.class));
+		verify(responsePublisher, times(1)).sendMessage(any(PaymentResponse.class));
+	}
+	
+	@Test
+	void cancelPayment() {
+		when(paymentRepository.findByPurchaseId(anyLong())).thenReturn(Optional.of(payment));
+		when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+		Mockito.doNothing().when(responsePublisher).sendMessage(any(PaymentResponse.class));
+		dto.setType("CANCEL");
+		paymentService.completePayment(dto);
+		verify(paymentRepository, times(1)).save(any(Payment.class));
 		verify(responsePublisher, times(1)).sendMessage(any(PaymentResponse.class));
 	}
 

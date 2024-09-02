@@ -49,8 +49,6 @@ public class PurchaseService {
 		if (!eventClient.isEventActive(request.getEventId())) {
 			throw new ApiRequestException(HttpStatus.BAD_REQUEST, "Event is currently inactive.");
 		}
-		// 1. call Event service Rest template or use Eureka and feign client
-
 		// 2. Check if the given quantity of tickets are available by running query
 		Long availableTickets = ticketRepository.checkTicketAvailability(request.getEventId(), request.getType().toString());
 		if (availableTickets < request.getQuantity()) {
@@ -59,7 +57,7 @@ public class PurchaseService {
 		}
 
 
-		// 4.create new purchase and set to in progress update purchase to inprogress
+		// 3.create new purchase and set to in progress update purchase to in progress
 		Double ticketPrice = ticketRepository.getTicketAmount(request.getEventId(), request.getType().toString());
 
 		User user = userRepository.findById(request.getUserId()).orElse(null);
@@ -73,10 +71,10 @@ public class PurchaseService {
 		purchase.setCreatedAt(LocalDateTime.now());
 		purchase = purchaseRepository.save(purchase);
 		
-		// 3. If tickets are available book first n tickets set status to hold
+		// 4. If tickets are available book first n tickets set status to hold
 		ticketRepository.updateTicketStatus(TicketStatus.ON_HOLD.toString(), purchase.getId(),user.getId(), request.getEventId(), request.getType().toString(),
 				request.getQuantity());
-		// 4. call payment service using mq
+		// 5. call payment service using mq
 		paymentPublisher.sendMessage(
 				new PaymentRequest(purchase.getId(), user.getId(), ticketPrice * request.getQuantity(), "BOOK"));
 		return purchase.getId();

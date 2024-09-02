@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "fa7acf14-75e5-4d6f-a250-1a278ad8f3a2",
+		"_postman_id": "93ea53ea-eaa3-48ba-9346-6ca7da898ef8",
 		"name": "Event Service API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36602668"
 	},
 	"item": [
 		{
-			"name": "events",
+			"name": "event",
 			"item": [
 				{
 					"name": "{id}",
@@ -26,12 +26,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/events/:id/isValid",
+											"raw": "{{baseUrl}}/event/:id/isValid",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id",
 												"isValid"
 											],
@@ -57,14 +57,19 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/events/1/isValid",
+													"raw": "{{baseUrl}}/event/:id/isValid",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
-														"1",
+														"event",
+														":id",
 														"isValid"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
 													]
 												}
 											},
@@ -86,12 +91,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/events/:id/isValid",
+													"raw": "{{baseUrl}}/event/:id/isValid",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
+														"event",
 														":id",
 														"isValid"
 													],
@@ -115,12 +120,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/events/:id/isValid",
+													"raw": "{{baseUrl}}/event/:id/isValid",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
+														"event",
 														":id",
 														"isValid"
 													],
@@ -156,12 +161,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/events/:id/isActive",
+											"raw": "{{baseUrl}}/event/:id/isActive",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id",
 												"isActive"
 											],
@@ -187,14 +192,19 @@
 													}
 												],
 												"url": {
-													"raw": "{{baseUrl}}/events/1/isActive",
+													"raw": "{{baseUrl}}/event/:id/isActive",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
-														"1",
+														"event",
+														":id",
 														"isActive"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
 													]
 												}
 											},
@@ -216,12 +226,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/events/:id/isActive",
+													"raw": "{{baseUrl}}/event/:id/isActive",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
+														"event",
 														":id",
 														"isActive"
 													],
@@ -245,12 +255,12 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/events/:id/isActive",
+													"raw": "{{baseUrl}}/event/:id/isActive",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
-														"events",
+														"event",
 														":id",
 														"isActive"
 													],
@@ -283,12 +293,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/events/:id",
+									"raw": "{{baseUrl}}/event/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events",
+										"event",
 										":id"
 									],
 									"variable": [
@@ -313,13 +323,18 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/events/1",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
-												"1"
+												"event",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
 											]
 										}
 									},
@@ -341,12 +356,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/events/:id",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id"
 											],
 											"variable": [
@@ -369,12 +384,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/events/:id",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id"
 											],
 											"variable": [
@@ -418,12 +433,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/events/:id",
+									"raw": "{{baseUrl}}/event/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events",
+										"event",
 										":id"
 									],
 									"variable": [
@@ -452,7 +467,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n        \"name\": \"Sunburn\",\n        \"date\": \"2024-11-25T12:00:00\",\n        \"location\": \"Goa\",\n        \"performer\": \"Hardwell\",\n        \"status\": \"ACTIVE\"\n}",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"location\": \"<string>\",\n  \"performer\": \"<string>\",\n  \"status\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -461,13 +476,18 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/events/40",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
-												"40"
+												"event",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
 											]
 										}
 									},
@@ -504,12 +524,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/events/:id",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id"
 											],
 											"variable": [
@@ -547,12 +567,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/events/:id",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id"
 											],
 											"variable": [
@@ -577,12 +597,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/events/:id",
+									"raw": "{{baseUrl}}/event/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events",
+										"event",
 										":id"
 									],
 									"variable": [
@@ -601,13 +621,18 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/events/6",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
-												"6"
+												"event",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
 											]
 										}
 									},
@@ -624,12 +649,12 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/events/:id",
+											"raw": "{{baseUrl}}/event/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"events",
+												"event",
 												":id"
 											],
 											"variable": [
@@ -651,6 +676,146 @@
 					]
 				},
 				{
+					"name": "{eventId}",
+					"item": [
+						{
+							"name": "details",
+							"item": [
+								{
+									"name": "Retrieve Ticket details by event Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/event/:eventId/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"event",
+												":eventId",
+												"details"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<long>",
+													"description": "(Required) ID of event to be retrived"
+												}
+											]
+										},
+										"description": "Get Available Ticket Details by specifying its event id. "
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/event/:eventId/details",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"event",
+														":eventId",
+														"details"
+													],
+													"variable": [
+														{
+															"key": "eventId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"ticketType\": \"<string>\",\n  \"availableTickets\": \"<integer>\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/event/:eventId/details",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"event",
+														":eventId",
+														"details"
+													],
+													"variable": [
+														{
+															"key": "eventId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/event/:eventId/details",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"event",
+														":eventId",
+														"details"
+													],
+													"variable": [
+														{
+															"key": "eventId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "Retrieve all Events Or Filter by event name",
 					"request": {
 						"method": "GET",
@@ -661,12 +826,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/events?name=<string>",
+							"raw": "{{baseUrl}}/event?name=<string>",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"events"
+								"event"
 							],
 							"query": [
 								{
@@ -689,17 +854,17 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/events?name=Sunburn",
+									"raw": "{{baseUrl}}/event?name=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events"
+										"event"
 									],
 									"query": [
 										{
 											"key": "name",
-											"value": "Sunburn",
+											"value": "<string>",
 											"description": "Name of event to be retrieved"
 										}
 									]
@@ -723,12 +888,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/events?name=<string>",
+									"raw": "{{baseUrl}}/event?name=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events"
+										"event"
 									],
 									"query": [
 										{
@@ -752,12 +917,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/events?name=<string>",
+									"raw": "{{baseUrl}}/event?name=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events"
+										"event"
 									],
 									"query": [
 										{
@@ -802,12 +967,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/events",
+							"raw": "{{baseUrl}}/event",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"events"
+								"event"
 							]
 						}
 					},
@@ -828,7 +993,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"Sunburn\",\n  \"date\": \"2024-11-20T12:00:00\",\n  \"location\": \"Goa\",\n  \"performer\": \"Hardwell\"\n}",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"location\": \"<string>\",\n  \"performer\": \"<string>\",\n  \"status\": \"<string>\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -837,12 +1002,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/events",
+									"raw": "{{baseUrl}}/event",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events"
+										"event"
 									]
 								}
 							},
@@ -879,12 +1044,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/events",
+									"raw": "{{baseUrl}}/event",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"events"
+										"event"
 									]
 								}
 							},
@@ -894,45 +1059,6 @@
 							"header": [],
 							"cookie": [],
 							"body": ""
-						},
-						{
-							"name": "Create a new Event",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"location\": \"<string>\",\n  \"performer\": \"<string>\",\n  \"status\": \"<string>\"\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/events",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"events"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
 						}
 					]
 				}

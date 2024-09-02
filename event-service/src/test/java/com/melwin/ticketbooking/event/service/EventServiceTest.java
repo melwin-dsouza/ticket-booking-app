@@ -1,6 +1,7 @@
 package com.melwin.ticketbooking.event.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -21,9 +22,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.melwin.ticketbooking.event.dto.EventDetailsDTO;
+import com.melwin.ticketbooking.event.client.BookingClient;
 import com.melwin.ticketbooking.event.dto.EventDTO;
 import com.melwin.ticketbooking.event.entity.Event;
 import com.melwin.ticketbooking.event.entity.EventStatus;
+import com.melwin.ticketbooking.event.exception.ApiRequestException;
 import com.melwin.ticketbooking.event.repository.EventRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +35,9 @@ class EventServiceTest {
 
 	@Mock
 	private EventRepository eventRepository;
+	
+	@Mock
+	private BookingClient bookingClient;
 
 	@InjectMocks
 	private EventService eventService;
@@ -101,4 +108,18 @@ class EventServiceTest {
 		assertTrue(response);
 	}
 
+	@Test
+	void getTicketAvailabilityDetails() {
+		when(eventRepository.findById(anyLong())).thenReturn(Optional.of(event));
+		when(bookingClient.getTicketAvailabilityDetails(anyLong())).thenReturn(List.of());
+		List<EventDetailsDTO> list = eventService.getTicketAvailabilityDetails(1L);
+		assertEquals(list.size(), 0);
+	}
+	
+
+	@Test
+	void getTicketAvailabilityDetailsException() {
+		when(eventRepository.findById(anyLong())).thenReturn(Optional.empty());
+		assertThrows(ApiRequestException.class,()->{ eventService.getTicketAvailabilityDetails(1L);});
+	}
 }
