@@ -60,13 +60,14 @@ There are 4 microservices in this application
 ## MAIN WORKFLOW
 
 1. **Create Event**: Use the `http://localhost:8081/ticketbooking/event` to create the Create
-2. **Create Tickets**: Using the `eventId`, create the Tickets using the `http://localhost:8082/ticketbooking/ticket/multiple` Api
-3. **Check Ticket Availability**: Before starting the Booking process, Check Ticket availability using the `http://localhost:8082/ticketbooking/ticket/:eventId/details` Api
-4. **Place Ticket Purchase Request**: Place the purchase request using the `http://localhost:8082/ticketbooking/ticket/purchase` Api
-5. **Purchase Flow**: Purchase Request will check the Event validity, Checks if the requested number of tickets available and places a Payment trigger by calling **Payment-Service** using **RabbitMQ**
-6. **Payment Flow**: Recieves Payment request from RabbitMQ listener and processes it. Sends the Payment information back to **Booking-Service**
-7. **Send Email Acknowledgement**: Based on the Response received from Payment Service, Booking-Service will call **Notification-Service** for Sending Email to User
-8. **Notification Flow**: Notification-Service will send the email to User about Ticket Status using **AWS SES** service
+2. **Create Event Tickets**: Using the `eventId`, create event Tickets using the `http://localhost:8082/ticketbooking/ticket/multiple` Api
+3. **Check Ticket Availability**: Before starting the Booking process, Check Ticket availability using the `http://localhost:8081/ticketbooking/event/:eventId/details` Api
+4. **Create User**: Use the `http://localhost:8082/ticketbooking/user` to create the Create
+5. **Place Ticket Purchase Request**: Place the purchase request using the `http://localhost:8082/ticketbooking/ticket/purchase` Api
+6. **Purchase Flow**: Purchase Request will check the Event validity, Checks if the requested number of tickets available and places a Payment trigger by calling **Payment-Service** using **RabbitMQ**
+7. **Payment Service**: Recieves Payment request from RabbitMQ listener and processes it. Sends the Payment information back to **Booking-Service**
+8. **Send Email Acknowledgement**: Based on the Response received from Payment Service, Booking-Service will call **Notification-Service** for Sending Email to User
+9. **Notification Flow**: Notification-Service will send the email to User about Ticket Status using **AWS SES** service
 
 ### Testing
 
